@@ -19,12 +19,17 @@ class HomePage extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
-        children:const [
+        children: [
           Text('Home Page'),
           Text('Home Page'),
           Text('Home Page'),
           Text('Home Page'),
-
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          CircularProgressIndicator(),
+        ],
+        ),
         ],
       ),
     );
