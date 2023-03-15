@@ -9,20 +9,18 @@ class AnimationContainer extends StatefulWidget {
 }
 
 class _AnimationContainerState extends State<AnimationContainer> {
+   bool _isVisible = true;
 
-  double _containerHeight = 0.0;
-
-  @override
-  void initState() {
-    super.initState();
-    // Set the container height to the desired value after a delay of 500ms
-    Future.delayed(Duration(milliseconds: 500), () {
-      setState(() {
-        _containerHeight = 200.0; // Set the desired height here
-      });
+  void _toggleVisibility() {
+    setState(() {
+      _isVisible = !_isVisible;
     });
   }
-
+@override
+  void initState() {
+    _toggleVisibility();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,43 +29,237 @@ class _AnimationContainerState extends State<AnimationContainer> {
         title: Text('Animation Container'),
         centerTitle: true,
       ),
-      body:ListView(
+      body: ListView(
         children: [
-          AnimatedContainer(
-            duration: Duration(seconds: 2),
-            curve: Curves.easeInOut,
-            height: _containerHeight,
-            child: Container(
-              width: 300,
-              //height: 200,
-              color: Colors.red,
-              margin:const EdgeInsets.all(30),
-            ),
+           ElevatedButton(
+          onPressed: _toggleVisibility,
+          child: Text('Toggle Visibility'),
+        ),
+          const SizedBox(
+            height: 200,
           ),
-         
-         AnimatedContainer(
-            duration: Duration(milliseconds:2500 ),
-            curve: Curves.easeInOut,
-            height: _containerHeight,
-            child: Container(
-              width: 300,
-              //height: 200,
-              color: Colors.blue,
-              margin:const EdgeInsets.all(30),
-            ),
-          ),AnimatedContainer(
-            duration: Duration(seconds: 5),
-            curve: Curves.easeInOut,
-            height: _containerHeight,
-            child: Container(
-              width: 300,
-              //height: 200,
-              color: Colors.green,
-              margin:const EdgeInsets.all(30),
-            ),
-          ),
-         
+         AnimatedOpacity(
+           duration: Duration(milliseconds: 500),
+          curve: Curves.easeInOut,
+          opacity: _isVisible ? 1.0 : 0.0,
+           child: Container(
+              
+              height: 80,
+              margin: const EdgeInsets.only(
+                left: 25,
+                right: 25,
+                bottom: 24,
+              ),
+              decoration: BoxDecoration(
+                border: Border.all(
+                  width: 1.5,
+                  color: Colors.blue,
+                ),
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  ClipRRect(
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(16),
+                      bottomLeft: Radius.circular(16),
+                    ),
+                    child: Image.asset(
+                      'assets/images/cover.jpg',
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(
+                      right: 25,
+                    ),
+                    child: Text(
+                      '222 : مرحلة البدء',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xFF333333),
+                        fontSize: 18,
+                      ),
+                    ),
+                  ),
                 ],
+              ),
+            ),
+         ),
+          Container(
+            height: 80,
+            margin: const EdgeInsets.only(
+              left: 25,
+              right: 25,
+              bottom: 24,
+            ),
+            decoration: BoxDecoration(
+              border: Border.all(
+                width: 1.5,
+                color: Colors.blue,
+              ),
+              borderRadius: BorderRadius.circular(16),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                ClipRRect(
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(16),
+                    bottomLeft: Radius.circular(16),
+                  ),
+                  child: Image.asset(
+                    'assets/images/cover.jpg',
+                    fit: BoxFit.fill,
+                  ),
+                ),
+                const Padding(
+                  padding: EdgeInsets.only(
+                    right: 25,
+                  ),
+                  child: Text(
+                    '222 : مرحلة البدء',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF333333),
+                      fontSize: 18,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            height: 80,
+            margin: const EdgeInsets.only(
+              left: 25,
+              right: 25,
+              bottom: 24,
+            ),
+            decoration: BoxDecoration(
+              border: Border.all(
+                width: 1.5,
+                color: Colors.blue,
+              ),
+              borderRadius: BorderRadius.circular(16),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                ClipRRect(
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(16),
+                    bottomLeft: Radius.circular(16),
+                  ),
+                  child: Image.asset(
+                    'assets/images/cover.jpg',
+                    fit: BoxFit.fill,
+                  ),
+                ),
+                const Padding(
+                  padding: EdgeInsets.only(
+                    right: 25,
+                  ),
+                  child: Text(
+                    '222 : مرحلة البدء',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF333333),
+                      fontSize: 18,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            height: 80,
+            margin: const EdgeInsets.only(
+              left: 25,
+              right: 25,
+              bottom: 24,
+            ),
+            decoration: BoxDecoration(
+              border: Border.all(
+                width: 1.5,
+                color: Colors.blue,
+              ),
+              borderRadius: BorderRadius.circular(16),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                ClipRRect(
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(16),
+                    bottomLeft: Radius.circular(16),
+                  ),
+                  child: Image.asset(
+                    'assets/images/cover.jpg',
+                    fit: BoxFit.fill,
+                  ),
+                ),
+                const Padding(
+                  padding: EdgeInsets.only(
+                    right: 25,
+                  ),
+                  child: Text(
+                    '222 : مرحلة البدء',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF333333),
+                      fontSize: 18,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            height: 80,
+            margin: const EdgeInsets.only(
+              left: 25,
+              right: 25,
+              bottom: 24,
+            ),
+            decoration: BoxDecoration(
+              border: Border.all(
+                width: 1.5,
+                color: Colors.blue,
+              ),
+              borderRadius: BorderRadius.circular(16),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                ClipRRect(
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(16),
+                    bottomLeft: Radius.circular(16),
+                  ),
+                  child: Image.asset(
+                    'assets/images/cover.jpg',
+                    fit: BoxFit.fill,
+                  ),
+                ),
+                const Padding(
+                  padding: EdgeInsets.only(
+                    right: 25,
+                  ),
+                  child: Text(
+                    '222 : مرحلة البدء',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF333333),
+                      fontSize: 18,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
